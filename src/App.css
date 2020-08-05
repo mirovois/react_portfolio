@@ -1,23 +1,23 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html{
+html {
   /* font-family: var(--mainFont); */
 }
 
 .App {
-  background:url(./images/bgr.jpg);
+  position: relative;
+  background: url(./images/bgr.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   min-height: 100vh;
-  color:var(--primaryColor);
+  color: var(--primaryColor);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
