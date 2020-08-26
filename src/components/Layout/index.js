@@ -148,6 +148,21 @@ class Layout extends Component {
               primary={<Typography variant="h5">Resume</Typography>}
             />
           </StyledMenuItem>
+
+          <StyledMenuItem
+            component={NavLink}
+            to="contacts"
+            activeClassName="selected"
+            activeStyle={{
+              fontWeight: "bold",
+              color: "#42a5f5",
+            }}
+          >
+            <EmojiPeopleIcon fontSize="large" />
+            <ListItemText
+              primary={<Typography variant="h5">Contact</Typography>}
+            />
+          </StyledMenuItem>
         </MenuList>
       </div>
     );

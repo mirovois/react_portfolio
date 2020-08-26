@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
   large: {
     width: 260,
     height: 260,
+    marginTop: "20%",
   },
   hero: {
     display: "flex",
@@ -19,6 +20,18 @@ const useStyles = makeStyles((theme) => ({
     color: "beige",
     fontFamily: "Bebas",
     fontWeight: "bold",
+    borderTop: "4px solid #4286f4",
+    // marginTop: "0.5rem",
+    // lineHeight: "rem",
+  },
+  ava__TitleName: {
+    fontFamily: "Kanit",
+    color: "beige",
+    fontWeight: "bold",
+    letterSpacing: "2px",
+    // borderBottom: "4px solid #4286f4",
+    lineHeight: "2rem",
+    marginBottom: "0.5rem",
   },
 }));
 
@@ -33,11 +46,11 @@ function Hero() {
           }
           className={classes.large}
         />
-        <Typography variant="h4" className={classes.ava__Title}>
+        <Typography variant="h4" className={classes.ava__TitleName}>
           Myroslav Voysovych
         </Typography>
         <br />
-        <Typography variant="h6" className={classes.ava__Title}>
+        <Typography variant="h5" className={classes.ava__Title}>
           Front End Developer
         </Typography>
       </Box>

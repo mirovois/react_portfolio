@@ -4,6 +4,7 @@ import Layout from "./components/Layout";
 import Projects from "./components/Projects";
 import Home from "./components/Home";
 import Resume from "./components/Resume";
+import ContactPage from "./components/ContactPage";
 import { makeStyles } from "@material-ui/styles";
 import Particles from "react-particles-js";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -11,7 +12,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 const useStyles = makeStyles({
   screen: {
     position: "absolute",
-    // zIndex: -100,
     top: 0,
     left: 0,
   },
@@ -26,6 +26,7 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/projects" component={Projects} />
         <Route exact path="/resume" component={Resume} />
+        <Route exact path="/contacts" component={ContactPage} />
         <Layout>
           <Switch>
             <Particles

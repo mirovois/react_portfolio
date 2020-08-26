@@ -46,7 +46,7 @@ const cardsInfo = [
     desc:
       "A simple responsive application, which helps a customer to order breakfast. Data is managed by Firebase firestore. Used Material UI for making components",
     source: "https://github.com/mirovois/react__breakfast-order-service",
-    link: "https://github.com/mirovois/react__breakfast-order-service",
+    link: "https://order-service.netlify.app/",
     icon: iconReact,
   },
   {
