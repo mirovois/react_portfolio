@@ -1,12 +1,10 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Particles from "react-particles-js";
 
 const useStyles = makeStyles({
   screen: {
     position: "absolute",
-    // zIndex: -100,
     top: 0,
     left: 0,
   },

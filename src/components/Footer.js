@@ -6,7 +6,7 @@ import { IconButton, Button } from "@material-ui/core";
 export class Footer extends Component {
   render() {
     return (
-      <div>
+      <div style={{ display: "flex", marginTop: "3rem" }}>
         <IconButton
           variant="contained"
           style={{ color: "white" }}

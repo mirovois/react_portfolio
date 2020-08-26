@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
   large: {
     width: 260,
     height: 260,
-    marginTop: "20%",
+    marginTop: "28%",
   },
   hero: {
     display: "flex",
@@ -21,15 +21,12 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Bebas",
     fontWeight: "bold",
     borderTop: "4px solid #4286f4",
-    // marginTop: "0.5rem",
-    // lineHeight: "rem",
   },
   ava__TitleName: {
     fontFamily: "Kanit",
     color: "beige",
     fontWeight: "bold",
     letterSpacing: "2px",
-    // borderBottom: "4px solid #4286f4",
     lineHeight: "2rem",
     marginBottom: "0.5rem",
   },
@@ -38,14 +35,9 @@ const useStyles = makeStyles((theme) => ({
 function Hero() {
   const classes = useStyles();
   return (
-    <>
+    <React.Fragment>
       <Box className={classes.hero}>
-        <Avatar
-          src={
-            "https://banner2.cleanpng.com/20180403/awe/kisspng-computer-icons-avatar-male-super-b-5ac405d5122261.8229479815227959890743.jpg"
-          }
-          className={classes.large}
-        />
+        <Avatar src={avatar} className={classes.large} />
         <Typography variant="h4" className={classes.ava__TitleName}>
           Myroslav Voysovych
         </Typography>
@@ -54,7 +46,7 @@ function Hero() {
           Front End Developer
         </Typography>
       </Box>
-    </>
+    </React.Fragment>
   );
 }
 

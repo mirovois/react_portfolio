@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-html {
-  /* font-family: var(--mainFont); */
-}
-
 .App {
   position: relative;
   background: url(./images/bgr.jpg);
@@ -21,7 +17,20 @@ html {
   justify-content: center;
   align-items: center;
 }
-form {
+
+.form__wrapper {
+  width: 52%;
+  height: 60%;
+  margin-top: 4rem;
+  margin-left: 7rem;
+  margin-bottom: 1rem;
+  /* padding: 1rem; */
+  background: -webkit-linear-gradient(to right, #4b6cb7, #182848);
+  background: linear-gradient(to right, #4b6cb7, #182848);
+  z-index: 1;
+}
+
+/* form {
   max-width: 500px;
   width: 100%;
   margin: 0 auto;
@@ -68,4 +77,9 @@ button:hover {
   cursor: pointer;
   background-color: white;
   color: rgb(70, 153, 179);
+} */
+.errorMessage {
+  color: red;
+  font-size: 0.75em;
+  display: relative;
 }

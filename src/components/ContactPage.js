@@ -1,108 +1,141 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import { Formik, useFormik } from "formik";
-import { makeStyles } from "@material-ui/styles";
-import { Grid, TextField, Button, TextareaAutosize } from "@material-ui/core";
-import * as Yup from "yup";
+import { withStyles } from "@material-ui/core/styles";
+import {
+  Grid,
+  TextField,
+  Button,
+  TextareaAutosize,
+  Typography,
+} from "@material-ui/core";
 
-const useStyles = makeStyles({
+const styles = (theme) => ({
   root: {
-    flexGrow: 1,
-    width: "72%",
-    height: "80%",
-    marginTop: "6rem",
-    marginLeft: "7rem",
+    zIndex: 1,
+    width: "65%",
+    marginLeft: "25%",
+    marginRight: "8%",
+    marginTop: "5rem",
     marginBottom: "1rem",
-    padding: "1rem",
+    paddingBottom: "1rem",
     background: "-webkit-linear-gradient(to right, #4b6cb7, #182848)",
     background: "linear-gradient(to right, #4b6cb7, #182848)",
-    zIndex: 1,
+    textAlign: "center",
+  },
+  title: {
+    color: "beige",
+    fontFamily: "Vidaloka",
+    fontSize: "calc(2rem + 2vw)",
+  },
+  input__block: {
+    marginTop: "2rem",
+    background: "white",
+  },
+  text__area: {
+    margin: "2rem 0 0.2rem 0",
+    background: "white",
+    width: "14rem",
+  },
+  error_message: {
+    fontSize: 12,
+    color: "red",
+  },
+  confirmation_message: {
+    textAlign: "center",
+    color: "white",
   },
 });
-const formValidation = (errors) => {
-  let isValid = true;
-  Object.values(errors).forEach((error) => {
-    if (error.length > 0) {
-      isValid = false;
+
+const validate = (firstName, lastName, email, message) => {
+  const errors = {};
+  if (!firstName) {
+    errors.firstName = "First name can't be empty";
+  }
+  if (!lastName) {
+    errors.lastName = "Last name can't be empty";
+  }
+
+  if (typeof email !== "undefined") {
+    var pattern = new RegExp(
+      /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
+    );
+    if (!pattern.test(email)) {
+      errors.email = "Please enter valid email address.";
     }
-    return isValid;
-  });
+  }
+
+  return errors;
 };
 
-export class ContactPage extends Component {
+class ContactPage extends Component {
   state = {
     firstName: "",
     lastName: "",
     email: "",
     message: "",
     sent: false,
-    errors: {
-      firstName: "",
-      lastName: "",
-      email: "",
-    },
+    errors: {},
   };
 
-  handleSubmitClick = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
+    const { firstName, lastName, email, message } = this.state;
 
-    console.log(`
-           Submitting:
-         -First Name-${this.state.firstName}
-         -Last Name-${this.state.lastName}
-         -Email-${this.state.email}
-         `);
-    // if (formValidation(this.state.errors)) {
-    //   console.log(`
-    //     SUbmitting:
-    //     -First Name-${this.state.firstName}
-    //     -Last Name-${this.state.lastName}
-    //     -Email-${this.state.email}
-    //     `);
-    // } else {
-    //   console.error("Form invalid!");
-    // }
+    const errors = validate(firstName, lastName, email);
+    if (Object.values(errors).length > 0) {
+      this.setState({ errors: errors });
+      return;
+    }
+    let data = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email,
+      message: this.state.message,
+    };
+    axios
+      .post("/api/form", data)
+      .then((res) => {
+        this.setState({
+          sent: true,
+          firstName: "",
+          lastName: "",
+          email: "",
+          message: "",
+          errors: {},
+        });
+        console.log(this.state.sent);
+        console.log("Your message has been sent!");
+        e.target.reset();
+      })
+      .catch(() => {
+        console.log("Data not sent");
+      });
   };
 
   handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    // console.log(value);
-
-    let errors = this.state.errors;
-
-    switch (name) {
-      case "firstName":
-        errors.firstName =
-          value.length < 3 && value.length > 0 ? "minimum 3 characters" : "";
-        break;
-      case "lastName":
-        errors.lastName =
-          value.length < 3 && value.length > 0 ? "minimum 3 characters" : "";
-        break;
-      case "email":
-        errors.email =
-          value.length < 1 && value.length > 0 ? "Enter email" : "";
-        break;
-      default:
-        break;
-    }
-    this.setState(
-      {
-        [name]: value,
-      },
-      () => console.log(this.state)
-    );
+    this.setState({ [name]: value }, () => console.log(this.state));
   };
 
-  // const classes = useStyles();
-
   render() {
-    return (
-      <div style={{ zIndex: 1 }}>
-        <h1 style={{ color: "beige" }}>Contact</h1>
+    const { errors } = this.state;
+    const { classes, children } = this.props;
 
-        <form noValidate autoComplete="off">
+    return (
+      <div className={classes.root}>
+        <Typography className={classes.title} align="center">
+          Contact me
+        </Typography>
+
+        <form onSubmit={this.handleSubmit} ren>
+          {this.state.sent && (
+            <h2 className="confirmation_message">
+              Your message has been sent.
+              <br />
+              Tnank you for your interest!
+            </h2>
+          )}
           <Grid
             container
             spacing={3}
@@ -111,49 +144,52 @@ export class ContactPage extends Component {
             alignItems="center"
           >
             <TextField
-              required
               name="firstName"
               type="text"
-              style={{ marginTop: "3rem", background: "white" }}
+              className={classes.input__block}
               label="First Name"
-              variant="outlined"
+              variant="filled"
               onChange={this.handleChange}
             />
+            {"firstName" in errors && (
+              <span className={classes.error_message}>{errors.firstName}</span>
+            )}
             <TextField
-              required
+              className={classes.input__block}
               name="lastName"
               type="text"
-              style={{ marginTop: "3rem", background: "white" }}
               label="Last Name"
-              variant="outlined"
+              variant="filled"
               onChange={this.handleChange}
             />
+            {"lastName" in errors && (
+              <span className={classes.error_message}>{errors.lastName}</span>
+            )}
             <TextField
-              required
               name="email"
               type="text"
-              style={{ margin: "3rem 0", background: "white" }}
+              className={classes.input__block}
               label="E-mail "
-              variant="outlined"
+              variant="filled"
               onChange={this.handleChange}
             />
+            {"email" in errors && (
+              <span className={classes.error_message}>{errors.email}</span>
+            )}
             <TextareaAutosize
-              aria-label="minimum height"
-              name="text"
-              style={{ margin: "3rem 0", background: "white" }}
-              rowsMin={3}
-              label="Message..."
+              name="message"
+              type="text"
+              rowsMin={4}
+              className={classes.text__area}
+              multiline
+              placeholder="your message..."
               onChange={this.handleChange}
             />
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              onClick={(e) => {
-                this.handleSubmitClick(e);
-              }}
-            >
-              Log In
+            {"message" in errors && (
+              <span className={classes.error_message}>{errors.message}</span>
+            )}
+            <Button type="submit" variant="contained" color="primary">
+              Submit
             </Button>
           </Grid>
         </form>
@@ -162,85 +198,4 @@ export class ContactPage extends Component {
   }
 }
 
-export default ContactPage;
-
-//   const formik = useFormik({
-//     initialValues: {
-//       email: "",
-//     },
-//     validationSchema: Yup.object({
-//       firstName: Yup.string()
-//         .min(0, "Please, enter your first name")
-//         .required("Required"),
-//       lastName: Yup.string()
-//         .min(0, "Please, enter your first name")
-//         .required("Required"),
-//       email: Yup.string()
-//         .email("Invalid email address")
-//         .required("No e-mail provided"),
-//     }),
-
-//     onSubmit: (values) => {
-//       alert(JSON.stringify(values, null, 2));
-//     },
-//   });
-
-/* <Formik
-        initialValues={{ firstName: "", lastName: "", email: "" }}
-        validationSchema={Yup.object({
-          firstName: Yup.string()
-            // .min(1, "Please, enter your first name")
-            .required("First name is required"),
-          lastName: Yup.string()
-            // .min(20, "Please, enter your last name")
-            .required("Last name is required"),
-          email: Yup.string().email().required("No email provided"),
-        })}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            console.log("Logging in", values);
-            setSubmitting(false);
-          }, 400);
-        }}
-      >
-        {(formik) => (
-          <form onSubmit={formik.handleSubmit}>
-            <label htmlFor="firstName">First Name</label>
-            <input
-              id="firstName"
-              name="firstName"
-              type="text"
-              onChange={formik.handleChange}
-              value={formik.values.firstName}
-            />
-            {formik.touched.firstName && formik.errors.firstName ? (
-              <div>{formik.errors.firstName}</div>
-            ) : null}
-
-            <label htmlFor="lastName">Last Name</label>
-            <input
-              id="lastName"
-              name="lastName"
-              type="text"
-              onChange={formik.handleChange}
-              value={formik.values.lastName}
-            />
-            {formik.touched.lastName && formik.errors.lastName ? (
-              <div>{formik.errors.lastName}</div>
-            ) : null}
-
-            <label htmlFor="email">Email Address</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              onChange={formik.handleChange}
-              value={formik.values.email}
-            />
-            {formik.touched.email && formik.errors.email ? (
-              <div>{formik.errors.email}</div>
-            ) : null}
-            <button type="submit">Submit</button>
-          </form>
-        )}
-       </Formik>*/
+export default withStyles(styles)(ContactPage);

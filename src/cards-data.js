@@ -41,7 +41,7 @@ const cardsInfo = [
   },
   {
     id: 4,
-    name: "Breakfast order service",
+    name: "Order service",
     image: item4,
     desc:
       "A simple responsive application, which helps a customer to order breakfast. Data is managed by Firebase firestore. Used Material UI for making components",

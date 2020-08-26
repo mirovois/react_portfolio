@@ -19,38 +19,37 @@ import iconjs from "../images/iconJS.svg";
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    maxWidth: 300,
-    height: 485,
     background: "#4286f4",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    margin: "auto",
-    transition: "0.3s",
+    marginBottom: "3rem",
+    maxWidth: 305,
+    zIndex: 10,
+    [theme.breakpoints.down("lg")]: {
+      maxWidth: 280,
+    },
+    [theme.breakpoints.down("md")]: {
+      maxWidth: 230,
+    },
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: 200,
+    },
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: 260,
+    },
   },
   header: {
-    height: "4rem",
-  },
-  cardMedia: {
-    objectFit: "fill",
-  },
-  cardHeader: {
-    display: "flex",
-    justifyContent: "space-between",
+    height: "5rem",
   },
   cardActions: {
     display: "flex",
-    justifyContent: "space-between",
-    margin: "0 10px",
+    justifyContent: "space-around",
+    width: "100%",
+  },
+  cardMedia: {
+    height: 180,
   },
   button: {
     display: "flex",
     alignItems: "center",
-    width: "100%",
-    marginBottom: "1rem",
-  },
-  gitIcon: {
-    marginLeft: "10px",
   },
 }));
 
@@ -58,24 +57,24 @@ function CardProject(props) {
   const classes = useStyles();
   return (
     <>
-      <Card className={classes.card} shadow={5}>
+      <Card className={classes.card} shadow={5} spacing={2}>
         <CardHeader
           className={classes.header}
           title={<Typography variant="h5">{props.name}</Typography>}
-          avatar={<Avatar alt="Remy Sharp" src={props.icon} sizes="md" />}
+          avatar={<Avatar src={props.icon} sizes="sm" />}
         />
-        <CardActionArea spacing={1}>
+        <CardActionArea height="330" className={classes.action__area}>
           <CardMedia
             className={classes.cardMedia}
             component="img"
             alt="Banking App"
-            height="220"
+            height="100%"
             width="100%"
             image={props.image}
             title="JS project"
           />
-          <CardContent spacing={2}>
-            <Typography variant="body1" color="textSecondary" component="p">
+          <CardContent spacing={2} style={{ width: "100%", height: 200 }}>
+            <Typography variant="body1" color="textSecondary" align="justify">
               {props.desc}
             </Typography>
           </CardContent>
@@ -83,6 +82,7 @@ function CardProject(props) {
         <CardActions className={classes.cardActions}>
           <Button
             className={classes.button}
+            size="small"
             variant="contained"
             color="primary"
             href={props.source}
