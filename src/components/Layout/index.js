@@ -4,8 +4,6 @@ import { withStyles } from "@material-ui/core/styles";
 import EmojiPeopleIcon from "@material-ui/icons/EmojiPeople";
 import EventNoteIcon from "@material-ui/icons/EventNote";
 import HomeIcon from "@material-ui/icons/Home";
-// import MyMenu from "../MyMenu";
-
 import {
   Box,
   AppBar,
@@ -23,7 +21,7 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
-const drawerWidth = 140;
+const drawerWidth = 146;
 
 const styles = (theme) => ({
   tab: {
@@ -45,6 +43,11 @@ const styles = (theme) => ({
       display: "none",
     },
   },
+  main__header: {
+    [theme.breakpoints.up("xs")]: {
+      paddingRight: "4rem",
+    },
+  },
   toolbar: {
     background: "-webkit-linear-gradient(to right, #373b44, #4286f4)",
     background: "linear-gradient(#373b44, #4286f4)",
@@ -53,7 +56,6 @@ const styles = (theme) => ({
   drawerPaper: {
     width: drawerWidth,
     background: "transparent",
-    // display: "flex",
     alignItems: "center",
     justifyContent: "center",
     color: "beige",
@@ -69,19 +71,22 @@ const StyledMenuItem = withStyles((theme) => ({
   root: {
     fontSize: "4rem",
 
-    padding: "1rem 0.5rem",
+    // padding: "1rem 0.1rem",
     "&:focus": {
       backgroundColor: theme.palette.primary.dark,
-      fontSize: "1.8rem",
-      transform: "scale(1.1)",
+      fontSize: "1.6rem",
+      transform: "scale(1.07)",
     },
     "&:hover": {
       backgroundColor: theme.palette.primary.light,
     },
+    "&:active": {
+      backgroundColor: theme.palette.primary.light,
+    },
   },
-  item: {
-    fontSize: "4rem",
-  },
+  // item: {
+  //   fontSize: "4rem",
+  // },
 }))(MenuItem);
 
 class Layout extends Component {
@@ -102,17 +107,7 @@ class Layout extends Component {
         </Hidden>
 
         <MenuList>
-          <StyledMenuItem
-            component={NavLink}
-            button
-            exact
-            to="/"
-            activeClassName="selected"
-            activeStyle={{
-              fontWeight: "400",
-              color: "#42a5f5",
-            }}
-          >
+          <StyledMenuItem component={NavLink} to="/" activeClassName="selected">
             <HomeIcon fontSize="large" />
             <ListItemText
               primary={<Typography variant="h5">About</Typography>}
@@ -120,13 +115,10 @@ class Layout extends Component {
           </StyledMenuItem>
 
           <StyledMenuItem
+            button
             component={NavLink}
             to="projects"
             activeClassName="selected"
-            activeStyle={{
-              fontWeight: "bold",
-              color: "#42a5f5",
-            }}
           >
             <EventNoteIcon fontSize="large" />
             <ListItemText
@@ -138,10 +130,6 @@ class Layout extends Component {
             component={NavLink}
             to="resume"
             activeClassName="selected"
-            activeStyle={{
-              fontWeight: "bold",
-              color: "#42a5f5",
-            }}
           >
             <EmojiPeopleIcon fontSize="large" />
             <ListItemText
@@ -153,10 +141,10 @@ class Layout extends Component {
             component={NavLink}
             to="contacts"
             activeClassName="selected"
-            activeStyle={{
-              fontWeight: "bold",
-              color: "#42a5f5",
-            }}
+            // activeStyle={{
+            //   fontWeight: "bold",
+            //   color: "#42a5f5",
+            // }}
           >
             <EmojiPeopleIcon fontSize="large" />
             <ListItemText
@@ -183,7 +171,10 @@ class Layout extends Component {
             >
               <MenuIcon />
             </IconButton>
-            <Box style={{ textAlign: "center", flexGrow: 1 }}>
+            <Box
+              className={classes.main__header}
+              style={{ textAlign: "center", flexGrow: 1 }}
+            >
               <Typography variant="h6" noWrap>
                 My Portfolio
               </Typography>
