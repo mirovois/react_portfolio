@@ -9,7 +9,7 @@ import iconNode from "../images/iconNodejs.svg";
 import iconBootstrap from "../images/iconBootstrap.svg";
 import iconNpm from "../images/iconNpm.svg";
 import iconFirebase from "../images/iconFireBase.svg";
-import iconMysql from "../images/iconMysql.svg";
+import iconMongo from "../images/mongodb-icon.svg";
 import iconAdobe from "../images/adobe.svg";
 import iconGithub from "../images/iconGithub.svg";
 
@@ -73,7 +73,7 @@ const icons = [
   { icon: iconBootstrap, name: "Bootstrap" },
   { icon: iconNpm, name: "NPM" },
   { icon: iconFirebase, name: "FireBase" },
-  { icon: iconMysql, name: "MySQL" },
+  { icon: iconMongo, name: "Mongo" },
   { icon: iconAdobe, name: "AdobeXD" },
   { icon: iconGithub, name: "GitHub" },
 ];

@@ -6,8 +6,6 @@ import item5 from "./images/login_React.jpg";
 import iconJS from "./images/iconJS.svg";
 import iconReact from "./images/iconReact.svg";
 
-// import item4 from "./images/item4.jpg";
-// import item5 from "./images/item5.jpg";
 const cardsInfo = [
   {
     id: 1,
@@ -29,24 +27,24 @@ const cardsInfo = [
     link: "https://googlebooks-api.netlify.app/",
     icon: iconJS,
   },
-  {
-    id: 3,
-    name: "COVID-19 Tracker",
-    image: item3,
-    desc:
-      "A simple application for monitoring COVID-19 stats up to date. Using external calls to API",
-    source: "https://github.com/mirovois/banking_app",
-    link: "https://github.com/mirovois/banking_app",
-    icon: iconJS,
-  },
+  // {
+  //   id: 3,
+  //   name: "COVID-19 Tracker",
+  //   image: item3,
+  //   desc:
+  //     "A simple application for monitoring COVID-19 stats up to date. Using external calls to API",
+  //   source: "https://github.com/mirovois/banking_app",
+  //   link: "https://github.com/mirovois/banking_app",
+  //   icon: iconJS,
+  // },
   {
     id: 4,
     name: "Order service",
     image: item4,
     desc:
-      "A simple responsive application, which helps a customer to order breakfast. Data is managed by Firebase firestore. Used Material UI for making components",
-    source: "https://github.com/mirovois/react__breakfast-order-service",
-    link: "https://order-service.netlify.app/",
+      "A simple responsive application, which helps a customer to order breakfast. Data is managed by Context API. Used Material UI library for constructinf and styling components.",
+    source: "https://github.com/mirovois/order-service-app",
+    link: "https://order-service-app.netlify.app/",
     icon: iconReact,
   },
   {
