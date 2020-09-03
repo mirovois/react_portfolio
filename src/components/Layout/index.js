@@ -9,14 +9,12 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  TextField,
   Typography,
   Hidden,
   Drawer,
   MenuList,
   MenuItem,
   CssBaseline,
-  ListItemIcon,
   ListItemText,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -70,8 +68,6 @@ const styles = (theme) => ({
 const StyledMenuItem = withStyles((theme) => ({
   root: {
     fontSize: "4rem",
-
-    // padding: "1rem 0.1rem",
     "&:focus": {
       backgroundColor: theme.palette.primary.dark,
       fontSize: "1.6rem",
@@ -84,9 +80,6 @@ const StyledMenuItem = withStyles((theme) => ({
       backgroundColor: theme.palette.primary.light,
     },
   },
-  // item: {
-  //   fontSize: "4rem",
-  // },
 }))(MenuItem);
 
 class Layout extends Component {
@@ -136,17 +129,6 @@ class Layout extends Component {
               primary={<Typography variant="h5">Resume</Typography>}
             />
           </StyledMenuItem>
-
-          {/* <StyledMenuItem
-            component={NavLink}
-            to="contacts"
-            activeClassName="selected"
-          >
-            <EmojiPeopleIcon fontSize="large" />
-            <ListItemText
-              primary={<Typography variant="h5">Contact</Typography>}
-            />
-          </StyledMenuItem> */}
         </MenuList>
       </div>
     );
@@ -167,14 +149,14 @@ class Layout extends Component {
             >
               <MenuIcon />
             </IconButton>
-            <Box
+            {/* <Box
               className={classes.main__header}
               style={{ textAlign: "center", flexGrow: 1 }}
             >
               <Typography variant="h6" noWrap>
                 My Portfolio
               </Typography>
-            </Box>
+            </Box> */}
           </Toolbar>
         </AppBar>
         <nav className={classes.drawer} aria-label="mailbox folders">

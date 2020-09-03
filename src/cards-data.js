@@ -2,7 +2,7 @@ import item1 from "./images/banking_JS.jpg";
 import item2 from "./images/googleBooks_JS.jpg";
 import item3 from "./images/covid19Tracker_JS.jpg";
 import item4 from "./images/pdj_React.jpg";
-import item5 from "./images/login_React.jpg";
+import item5 from "./images/portfolio_React.jpg";
 import iconJS from "./images/iconJS.svg";
 import iconReact from "./images/iconReact.svg";
 
@@ -27,16 +27,16 @@ const cardsInfo = [
     link: "https://googlebooks-api.netlify.app/",
     icon: iconJS,
   },
-  // {
-  //   id: 3,
-  //   name: "COVID-19 Tracker",
-  //   image: item3,
-  //   desc:
-  //     "A simple application for monitoring COVID-19 stats up to date. Using external calls to API",
-  //   source: "https://github.com/mirovois/banking_app",
-  //   link: "https://github.com/mirovois/banking_app",
-  //   icon: iconJS,
-  // },
+  {
+    id: 3,
+    name: "COVID-19 Tracker",
+    image: item3,
+    desc:
+      "A simple application for monitoring COVID-19 stats up to date. Used fetchAPI to make external calls to API",
+    source: "https://github.com/mirovois/covid-19-app-JavaScript",
+    link: "https://covid19-js-app.netlify.app/",
+    icon: iconJS,
+  },
   {
     id: 4,
     name: "Order service",
@@ -49,13 +49,24 @@ const cardsInfo = [
   },
   {
     id: 5,
-    name: "Login Form",
+    name: "Portfolio website",
     image: item5,
     desc:
-      "Form module for being able to login and register with all necessary validation ",
-    source: "https://github.com/mirovois/reactJS_form-validation",
-    link: "https://login-form-manipulation.netlify.app/",
+      "My portfolio website. Material UI library paired with custom styles are used for styling components. React router is used for switching between pages",
+    source: "https://github.com/mirovois/react_portfolio",
+    link: "https://miro-portfolio.netlify.app/",
     icon: iconReact,
   },
+
+  // {
+  //   id: 5,
+  //   name: "Login Form",
+  //   image: item5,
+  //   desc:
+  //     "Form module for being able to login and register with all necessary validation ",
+  //   source: "https://github.com/mirovois/reactJS_form-validation",
+  //   link: "https://login-form-manipulation.netlify.app/",
+  //   icon: iconReact,
+  // },
 ];
 export default cardsInfo;
