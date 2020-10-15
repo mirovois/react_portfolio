@@ -28,7 +28,7 @@ function getTheme(theme) {
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    maxWidth: 360,
+    maxWidth: 340,
     backgroundColor: theme.palette.background.default,
   },
 }));
@@ -57,7 +57,7 @@ export default function SelectedListItem() {
         <ListItemIcon>
           <InboxIcon />
         </ListItemIcon>
-        <ListItemText primary="About" />
+        <ListItemText primary="Abot" />
       </ListItem>
 
       <ListItem

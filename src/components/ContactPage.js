@@ -18,7 +18,7 @@ const styles = (theme) => ({
     marginTop: "5rem",
     marginBottom: "1rem",
     paddingBottom: "1rem",
-    background: "-webkit-linear-gradient(to right, #4b6cb7, #182848)",
+    // background: "-webkit-linear-gradient(to right, #4b6cb7, #182848)",
     background: "linear-gradient(to right, #4b6cb7, #182848)",
     textAlign: "center",
   },
@@ -79,7 +79,7 @@ class ContactPage extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { firstName, lastName, email, message } = this.state;
+    const { firstName, lastName, email } = this.state;
 
     const errors = validate(firstName, lastName, email);
     if (Object.values(errors).length > 0) {
@@ -93,24 +93,29 @@ class ContactPage extends Component {
       message: this.state.message,
     };
     axios
-      .post("/api/form", data)
+      .post("https://miro-profile.herokuapp.com/api/form", data)
       .then((res) => {
         this.setState({
           sent: true,
-          firstName: "",
-          lastName: "",
-          email: "",
-          message: "",
-          errors: {},
+          // firstName: "",
+          // lastName: "",
+          // email: "",
+          // message: "",
+          // errors: {},
         });
-        console.log(this.state.sent);
-        console.log("Your message has been sent!");
-        e.target.reset();
+        // console.log(this.state.sent);
+        console.log("Your message was sent!");
+        this.resetForm();
       })
       .catch(() => {
         console.log("Data not sent");
       });
   };
+  resetForm(e){
+    // this.setState({firstName: '',lastName:'', email: '', message: ''})
+    const { name} = e.target;
+    this.setState({ [name]: '' });
+  }
 
   handleChange = (e) => {
     e.preventDefault();
@@ -120,7 +125,7 @@ class ContactPage extends Component {
 
   render() {
     const { errors } = this.state;
-    const { classes, children } = this.props;
+    const { classes } = this.props;
 
     return (
       <div className={classes.root}>

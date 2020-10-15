@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
-import EmojiPeopleIcon from "@material-ui/icons/EmojiPeople";
 import EventNoteIcon from "@material-ui/icons/EventNote";
 import HomeIcon from "@material-ui/icons/Home";
+import AddIcCallSharpIcon from '@material-ui/icons/AddIcCallSharp';
+import AssignmentSharpIcon from '@material-ui/icons/AssignmentSharp';
 import {
-  Box,
   AppBar,
   Toolbar,
   IconButton,
@@ -19,7 +19,7 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
-const drawerWidth = 146;
+const drawerWidth = 155;
 
 const styles = (theme) => ({
   tab: {
@@ -54,7 +54,6 @@ const styles = (theme) => ({
   drawerPaper: {
     width: drawerWidth,
     background: "transparent",
-    alignItems: "center",
     justifyContent: "center",
     color: "beige",
     zIndex: 10,
@@ -67,11 +66,11 @@ const styles = (theme) => ({
 
 const StyledMenuItem = withStyles((theme) => ({
   root: {
-    fontSize: "4rem",
+    fontSize: "3rem",
     "&:focus": {
       backgroundColor: theme.palette.primary.dark,
-      fontSize: "1.6rem",
-      transform: "scale(1.07)",
+      // fontSize: "1.3rem",
+      // transform: "scale(1.07)",
     },
     "&:hover": {
       backgroundColor: theme.palette.primary.light,
@@ -124,9 +123,20 @@ class Layout extends Component {
             to="resume"
             activeClassName="selected"
           >
-            <EmojiPeopleIcon fontSize="large" />
+            <AssignmentSharpIcon fontSize="large" />
             <ListItemText
               primary={<Typography variant="h5">Resume</Typography>}
+            />
+          </StyledMenuItem>
+
+          <StyledMenuItem
+            component={NavLink}
+            to="contacts"
+            activeClassName="selected"
+          >
+            <AddIcCallSharpIcon fontSize="large" />
+            <ListItemText
+              primary={<Typography variant="h5">Contact</Typography>}
             />
           </StyledMenuItem>
         </MenuList>
@@ -149,14 +159,6 @@ class Layout extends Component {
             >
               <MenuIcon />
             </IconButton>
-            {/* <Box
-              className={classes.main__header}
-              style={{ textAlign: "center", flexGrow: 1 }}
-            >
-              <Typography variant="h6" noWrap>
-                My Portfolio
-              </Typography>
-            </Box> */}
           </Toolbar>
         </AppBar>
         <nav className={classes.drawer} aria-label="mailbox folders">
