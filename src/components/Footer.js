@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
-import { IconButton, Button } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
 
-export class Footer extends Component {
-  render() {
-    return (
-      <div style={{ display: "flex", marginTop: "3rem" }}>
+function Footer() {
+      return (
+      <div style={{ display: "flex", justifyContent:"flex-start", marginTop: "3rem" }}>
         <IconButton
           variant="contained"
           style={{ color: "white" }}
@@ -24,6 +23,5 @@ export class Footer extends Component {
       </div>
     );
   }
-}
 
 export default Footer;

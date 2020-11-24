@@ -1,0 +1,126 @@
+.resume__wrapper {
+  min-height: 85vh;
+  margin: 4rem 7% 1rem 7%;
+  max-width: 90%;
+  padding: 3rem;
+  z-index: 1;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  background: linear-gradient(#3a6479, #01737c);
+}
+.pdf {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.pdf > h1 {
+  font-size: 1.2rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: var(--text-color-1);
+}
+.pdf > .MuiButtonBase-root {
+  padding: 0;
+  margin-right: 1rem;
+  font-size: 4rem;
+}
+.resume {
+  max-width: 85%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+.resume__title {
+  display: block;
+  font-size: calc(1.8rem + 1.2vw);
+  font-family: "Vidaloka";
+  color: var(--text-color-1);
+  opacity: 0.8;
+  letter-spacing: 2px;
+  /* border-bottom: 3px solid rgba(205, 221, 225, 0.35); */
+}
+.resume__image {
+  object-fit: cover;
+  width: 190px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  border-radius: 25%;
+  display: block;
+  height: 340px;
+  margin: 0.5rem;
+  opacity: 0.6;
+}
+.resume__info {
+  margin-left: 1rem;
+  display: flex;
+  /* flex: 1; */
+  flex-direction: column;
+  justify-content: space-between;
+}
+.resume__info p {
+  text-align: justify;
+  font-family: "Courier New", Courier, monospace "Lucida Sans", Arial,
+    sans-serif;
+  text-indent: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 980px) {
+  .resume__wrapper {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .resume {
+    width: 96%;
+  }
+  .pdf {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .resume__wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .resume {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  .resume__info p {
+    text-indent: 1.5rem;
+    margin-top: 0.1rem;
+    /* font-size: calc(0.5rem + 1vw); */
+  }
+  .resume__image {
+    height: 270px;
+  }
+  .resume__desc {
+    margin: 0.5rem 0;
+  }
+}
+@media screen and (max-width: 720px) {
+  .resume {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .pdf {
+    justify-content: center;
+  }
+  .resume__title {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .resume__image {
+    width: 250px;
+    height: 310px;
+  }
+  .resume__desc {
+    margin: 1.5rem 0;
+  }
+  .resume__info p {
+    text-indent: 0.75rem;
+    margin-top: 0.1rem;
+    font-size: calc(0.6rem + 1vw);
+  }
+}
+
+@media screen and (max-width: 500px) {
+}

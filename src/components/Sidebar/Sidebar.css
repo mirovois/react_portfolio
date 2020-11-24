@@ -1,0 +1,95 @@
+.sidebar {
+  display: none;
+}
+
+@media screen and (max-width: 476px) {
+  .sidebar {
+    background: #01737c;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    transition: var(--transition);
+    transform: translateX(-100%);
+  }
+  .show__sidebar {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .sidebar__links li {
+    opacity: 0;
+  }
+
+  aside > .MuiIconButton-root {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.18rem;
+    font-size: 4.5rem;
+    background: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    color: rgb(170, 167, 163);
+  }
+}
+.sidebar__links {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  list-style: none;
+}
+li {
+  text-decoration: none;
+}
+.sidebar__link-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: antiquewhite;
+  text-decoration: none;
+  margin: 1rem 0;
+  border-radius: 10px;
+}
+.sidebar__link-item p {
+  margin-left: 0.8rem;
+}
+.sidebar__links:hover {
+  color: bisque;
+}
+
+/* ===SIDEBAR ANIMATION */
+
+.sidebar__links li {
+  animation: slideRight 0.5s ease-in-out 0.3s forwards;
+}
+.sidebar__links li:nth-of-type(1) {
+  animation-delay: 0.2s;
+}
+.sidebar__links li:nth-of-type(2) {
+  animation-delay: 0.4s;
+}
+.sidebar__links li:nth-of-type(3) {
+  animation-delay: 0.6s;
+}
+.sidebar__links li:nth-of-type(4) {
+  animation-delay: 0.8s;
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

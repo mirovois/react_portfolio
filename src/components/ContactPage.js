@@ -97,11 +97,6 @@ class ContactPage extends Component {
       .then((res) => {
         this.setState({
           sent: true,
-          // firstName: "",
-          // lastName: "",
-          // email: "",
-          // message: "",
-          // errors: {},
         });
         // console.log(this.state.sent);
         console.log("Your message was sent!");

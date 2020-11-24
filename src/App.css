@@ -1,23 +1,32 @@
+/* Variables */
+
+:root {
+  --transition: all 0.3s linear;
+  --text-color: rgb(170, 167, 163);
+  --text-color-1: rgb(205, 221, 225);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.App {
-  position: relative;
-  background: url(./images/bgr.jpg);
+.app {
+  background: radial-gradient(
+      at center center,
+      rgba(15, 100, 106, 0.28),
+      rgba(19, 91, 96, 0.65)
+    ),
+    url(./images/bgr.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   min-height: 100vh;
-  color: var(--primaryColor);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* z-index: 1; */
 }
-
 .form__wrapper {
   width: 52%;
   height: 60%;

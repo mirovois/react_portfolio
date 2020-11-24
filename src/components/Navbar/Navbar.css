@@ -1,0 +1,94 @@
+nav {
+  position: fixed;
+  min-height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 4px;
+  width: 100%;
+  background-color: #01737c;
+  z-index: 2;
+}
+.nav__logo {
+  font-family: "Caveat", sans-serif;
+  color: var(--text-color-1);
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-left: 1rem;
+  margin-right: 6px;
+}
+.nav__links {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  flex: 0.65;
+}
+li :hover {
+  color: rgb(78, 75, 70);
+}
+
+.link__item {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--text-color);
+  text-decoration: none;
+}
+.active {
+  color: rgb(240, 237, 234);
+  background: #6b6961;
+  border-radius: 6px;
+}
+nav > .MuiIconButton-root {
+  color: rgb(170, 167, 163);
+  display: none;
+}
+nav > .MuiIconButton-root:focus {
+  transform: rotate(360deg);
+  transition: transform 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 900px) {
+  .nav__links {
+    flex: 1;
+  }
+}
+@media screen and (max-width: 750px) {
+  .nav__logo {
+    font-size: calc(0.7rem + 1vw);
+    margin-left: 2px;
+    margin-right: px;
+  }
+  .nav__links {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    flex: 1;
+  }
+}
+@media screen and (max-width: 610px) {
+  .link__item {
+    font-size: calc(0.5rem + 1vw);
+    letter-spacing: 1px;
+    padding: 3px 1.8px;
+  }
+}
+
+@media screen and (max-width: 476px) {
+  .nav__links {
+    display: none;
+  }
+  nav > .MuiIconButton-root {
+    color: rgb(170, 167, 163);
+    display: block;
+    padding: 0.6rem;
+    margin-right: 0.8rem;
+  }
+  .nav__logo {
+    flex: 1;
+    text-align: center;
+    padding-left: 4.5rem;
+    font-size: 1.6rem;
+  }
+}

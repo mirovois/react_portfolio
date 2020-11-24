@@ -1,0 +1,88 @@
+main {
+  min-height: 93vh;
+  display: grid;
+  place-items: center;
+}
+.home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.home__avatar > .MuiAvatar-root {
+  width: 200px;
+  height: 200px;
+  margin-left: 3rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+.home__hero h1 {
+  position: relative;
+  color: var(--text-color-1);
+  font-family: "Big Shoulders Stencil Text";
+  font-size: calc(1.8rem + 1.4vw);
+  cursor: pointer;
+}
+.home__hero h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 50%;
+  height: 2px;
+  background: var(--text-color-1);
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0.35;
+}
+.home__hero h1:hover::after {
+  cursor: pointer;
+  transform: scaleX(2);
+  transition: transform 500ms ease-in;
+}
+
+.home__hero p {
+  color: var(--text-color);
+  letter-spacing: 1.3px;
+  font-size: calc(0.5rem + 1.4vw);
+}
+.home__icons {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 2.5rem;
+}
+.home__icons > .MuiButtonBase-root {
+  color: var(--text-color-1);
+  padding: 0;
+  padding-right: 2rem;
+}
+.home__icons > .MuiButtonBase-root:hover {
+  color: gray;
+  transform: scale(1.1);
+}
+@media screen and (max-width: 600px) {
+  .home {
+    margin-top: 2rem;
+    flex-direction: column;
+  }
+  .home :nth-child(1) {
+    order: 2;
+  }
+  .home :nth-child(2) {
+    order: 1;
+  }
+  .home__hero p {
+    text-align: center;
+  }
+  .home__icons {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 700px) {
+  .home {
+    width: 80%;
+  }
+  .home__avatar > .MuiAvatar-root {
+    margin-left: 0.6rem;
+  }
+}

@@ -34,9 +34,10 @@ export default function Home() {
     console.log(data);
   }, []);
 
+  {/* <Grid container gutter justify="center" className={classes.grid__main}> */}
   return (
     <Box component="div" className={classes.root}>
-      <Grid container gutter justify="center" className={classes.grid__main}>
+      <Grid container spacing={2} justify="center">
         {data.map((card) => (
           <Grid item xs={12} sm={6} md={4} lg={4} xl={3}>
             <CardProject

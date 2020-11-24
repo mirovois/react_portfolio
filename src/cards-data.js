@@ -13,7 +13,7 @@ const cardsInfo = [
     name: "Amazon Clone",
     image: item6,
     desc:
-      "A scalable full stack E-commerce website built using ReactJS with backened aimed to process payments using Stripe API. For data storage we used real time cloud database supported by Firebase.",
+      "A scalable full stack E-commerce website built using ReactJS with backened aimed to process payments using Stripe API. Data is stored and processed in cloud database supported by Firebase.",
     source: "https://github.com/mirovois/amazon-clone",
     link: "https://clone-3bf30.web.app/",
     icon: iconReact,
@@ -23,7 +23,7 @@ const cardsInfo = [
     name: "Portfolio Website",
     image: item5,
     desc:
-      "A single page responsive portfolio website. Material UI library paired with custom styles are used for styling components. The backend is represented by Express.js and Nodemailer which is implemented in Contact Form.",
+      "A single page responsive portfolio website. Custom styles and Material UI library are used. The backend is represented by Express.js and Nodemailer.",
     source: "https://github.com/mirovois/react_portfolio",
     link: "https://miro-portfolio.netlify.app/",
     icon: iconReact,
