@@ -4,6 +4,7 @@ import item3 from "./images/covid19Tracker_JS.jpg";
 import item4 from "./images/pdj_React.jpg";
 import item5 from "./images/portfolio_React.jpg";
 import item6 from "./images/amazon_React.jpg";
+import item7 from './images/movie_React.jpg'
 import iconJS from "./images/iconJS.svg";
 import iconReact from "./images/iconReact.svg";
 
@@ -30,16 +31,26 @@ const cardsInfo = [
   },
   {
     id: 3,
+    name: "Movie App",
+    image: item7,
+    desc:
+      "An application for searching movies and related information using powerful TMDb API. The state is managed with Context API. By using special NPM packages we can fetch youtube trailers for any movie. ",
+    source: "https://github.com/mirovois/movie-finder-React",
+    link: "https://5fea70282dd4d953ab380f68--lucid-hodgkin-3e0050.netlify.app/",
+    icon: iconReact,
+  },
+  {
+    id: 4,
     name: "Order Service",
     image: item4,
     desc:
-      "A single-page responsive application, which helps a customer to order breakfast. Data is managed by Context API. Used Material UI library for constructing and styling components.",
+      "A single-page responsive application, which helps a customer to order breakfast. Data is managed by Context API. Material UI library was for layout and styling components.",
     source: "https://github.com/mirovois/order-service-app",
     link: "https://order-service-app.netlify.app/",
     icon: iconReact,
   },
   {
-    id: 4,
+    id: 5,
     name: "Google Books API",
     image: item2,
     desc:
@@ -49,7 +60,7 @@ const cardsInfo = [
     icon: iconJS,
   },
   {
-    id: 5,
+    id: 6,
     name: "COVID-19 Tracker",
     image: item3,
     desc:
@@ -59,7 +70,7 @@ const cardsInfo = [
     icon: iconJS,
   },
   {
-    id: 6,
+    id: 7,
     name: "Banking App",
     image: item1,
     desc:
