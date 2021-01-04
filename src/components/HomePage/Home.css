@@ -10,11 +10,18 @@ main {
   margin-left: 10%;
   margin-right: 10%;
 }
-.home__avatar > .MuiAvatar-root {
+/* .home__avatar > .MuiAvatar-root {
   width: 200px;
   height: 200px;
   margin-left: 3rem;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+} */
+
+.home__avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-left: 2rem;
 }
 .home__hero h1 {
   position: relative;
@@ -82,7 +89,11 @@ main {
   .home {
     width: 80%;
   }
-  .home__avatar > .MuiAvatar-root {
+  /* .home__avatar > .MuiAvatar-root {
     margin-left: 0.6rem;
+  } */
+  .home__avatar {
+    margin-left: 0.4rem;
+    margin-bottom: 1rem;
   }
 }

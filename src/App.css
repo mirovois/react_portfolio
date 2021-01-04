@@ -13,12 +13,12 @@
 }
 
 .app {
-  background: radial-gradient(
+  /* background: radial-gradient(
       at center center,
       rgba(15, 100, 106, 0.28),
       rgba(19, 91, 96, 0.65)
     ),
-    url(./images/bgr.jpg);
+    url(./images/bgr.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

@@ -36,7 +36,7 @@ const cardsInfo = [
     desc:
       "An application for searching movies and related information using powerful TMDb API. The state is managed with Context API. By using special NPM packages we can fetch youtube trailers for any movie. ",
     source: "https://github.com/mirovois/movie-finder-React",
-    link: "https://5fea70282dd4d953ab380f68--lucid-hodgkin-3e0050.netlify.app/",
+    link: "https://movie-app-miro.netlify.app/",
     icon: iconReact,
   },
   {

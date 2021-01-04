@@ -5,6 +5,8 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import { IconButton } from "@material-ui/core";
 import { Avatar } from "@material-ui/core";
+import {LazyLoadImage} from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import "./Home.css"
 
 
@@ -33,7 +35,13 @@ export default function HomePage() {
           </div>
         </div>
         <div className="home__avatar" >
-          <Avatar src={avatar} className="home__avatar" />
+          <LazyLoadImage 
+          className="home__avatar"
+          effect="blur"
+          src={avatar}
+          alt="avatar"
+          />
+          {/* <Avatar src={avatar} className="home__avatar" /> */}
         </div>
       </div>
 

@@ -18,9 +18,14 @@
   color: var(--text-color-1);
 }
 .pdf > .MuiButtonBase-root {
+  color: var(--text-color-1);
   padding: 0;
   margin-right: 1rem;
   font-size: 4rem;
+}
+.pdf > .MuiButtonBase-root:hover {
+  color: gray;
+  transform: scale(1.1);
 }
 .resume {
   max-width: 85%;
