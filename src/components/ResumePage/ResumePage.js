@@ -1,7 +1,7 @@
 import { Divider, IconButton } from '@material-ui/core';
 import React from 'react';
 import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf";
-import pdf from "../../resume_MyroslavVoysovych.pdf";
+import pdf from "../../resume.docx";
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import solo from '../../images/solo.jpg'
@@ -28,12 +28,11 @@ const ResumePage = () => {
                         <h2 className="resume__title">About me</h2>
                         <Divider variant="middle" height={10} />
                         <div className="resume__desc">
-                            <p className="p1">Hello! I am front-end developer currently located in Montreal. I am
-                            pursuing the opportunity to begin my careeer in web development.</p>
-                            <p className="p2">Therefore, when I developed an interest for programming I did not
-                                hesitate to turn my interest into a possible career.</p>
-                            <p className="p3">I enjoy learning about new technologies and a keen interest for web
-                                development with time has turned into a real passion.</p>
+                            <p className="p1">Hello! I am a front-end developer currently located in Montreal. I enjoy learning about new technologies and have a keen interest for web
+                                development.</p>
+                            <p className="p2">When I developed an interest for programming I did not
+                                hesitate to turn it into a possible career. What turns me on is the ability of interpreting your ideas via programming in a way that other people could see it. </p>
+                            <p className="p3">With time passing by I figured that this is something that changed my life significantly bringing in it new emotions and motivation.</p>
                         </div>
                         <Skills />
                     </div>

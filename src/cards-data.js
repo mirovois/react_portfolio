@@ -4,7 +4,8 @@ import item3 from "./images/covid19Tracker_JS.jpg";
 import item4 from "./images/pdj_React.jpg";
 import item5 from "./images/portfolio_React.jpg";
 import item6 from "./images/amazon_React.jpg";
-import item7 from './images/movie_React.jpg'
+import item7 from './images/movie_React.jpg';
+import item8 from './images/weather_JS.jpg'
 import iconJS from "./images/iconJS.svg";
 import iconReact from "./images/iconReact.svg";
 
@@ -51,6 +52,16 @@ const cardsInfo = [
   },
   {
     id: 5,
+    name: "Weather App",
+    image: item8,
+    desc:
+      "A simple weather application for defining weather all around the globe with built-in geolocating functionality.",
+    source: "https://github.com/mirovois/JS_weather-app",
+    link: "https://googlebooks-api.netlify.app/",
+    icon: iconJS,
+  },
+  {
+    id: 6,
     name: "Google Books API",
     image: item2,
     desc:
@@ -60,7 +71,7 @@ const cardsInfo = [
     icon: iconJS,
   },
   {
-    id: 6,
+    id: 7,
     name: "COVID-19 Tracker",
     image: item3,
     desc:
@@ -70,7 +81,7 @@ const cardsInfo = [
     icon: iconJS,
   },
   {
-    id: 7,
+    id: 8,
     name: "Banking App",
     image: item1,
     desc:
