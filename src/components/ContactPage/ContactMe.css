@@ -1,5 +1,5 @@
-/* .contact__wrapper {
-  min-height: 85vh;
+.contact__wrapper {
+  min-height: 65vh;
   margin: 4rem 7% 1rem 7%;
   max-width: 90%;
   padding: 3rem;
@@ -7,7 +7,7 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
   background: linear-gradient(#3a6479, #01737c);
 }
-form {
+/* form {
   max-width: 500px;
   display: flex;
   flex-direction: column;
@@ -30,9 +30,9 @@ form {
 .error_message {
   font-size: 12;
   color: red;
-} */
+} 
 
-/* form {
+ form {
   max-width: 500px;
   width: 100%;
   margin: 0 auto;
@@ -79,4 +79,4 @@ button:hover {
   cursor: pointer;
   background-color: white;
   color: rgb(70, 153, 179);
-} */
+}*/

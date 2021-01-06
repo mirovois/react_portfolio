@@ -3,8 +3,7 @@ import Layout from "./components/Layout/Layout";
 import Projects from "./components/ProjectsPage/ProjectsPage";
 import Home from "./components/HomePage/HomePage";
 import Resume from "./components/ResumePage/ResumePage";
-import ContactMe from './components/ContactPage/ContactMe'
-import {LazyLoadImage} from 'react-lazy-load-image-component';
+import ContactMe from './components/ContactPage/Contact'
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import bgr from './images/bgr.jpg';
