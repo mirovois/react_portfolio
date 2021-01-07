@@ -9,9 +9,8 @@ import { useState } from 'react';
 const useStyles = makeStyles((theme) => ({
     root:{
         minHeight:"85vh",
-        margin: "4rem 7% 1rem 7%",
+        margin: "3.3rem 6% 1rem 7%",
         maxWidth: "80%",
-        // padding: "1rem",
         zIndex: 1,
         boxShadow: "0 0 20px rgba(0, 0, 0, 0.8)",
         background:"linear-gradient(#3a6479, #01737c)"
@@ -22,20 +21,18 @@ const useStyles = makeStyles((theme) => ({
       alignItems: 'center',
     },
     avatar: {
-      margin: theme.spacing(1),
-      // backgroundColor: "rgb(170, 167, 163)",
-      color:"rgb(170, 167, 163)",
-      width: theme.spacing(6),
-      height: theme.spacing(6),
-    },
-    form: {
-    //   minWidth: '30%', 
-      marginLeft:"25%",
-      marginRight:"25%",
       marginTop: theme.spacing(1),
+      color:"rgb(170, 167, 163)",
+      width: theme.spacing(8),
+      height: theme.spacing(8),
+      backgroundColor:" #6b6961"
+    },
+    form: { 
+      marginLeft:"20%",
+      marginRight:"20%",
+      // marginTop: theme.spacing(1),
     },
     input__block: {
-      // marginTop: "1.6rem",
       background: "white",
       borderRadius:"10px",
       border:"2px #6b6961 solid",
@@ -43,45 +40,73 @@ const useStyles = makeStyles((theme) => ({
   },
     submit: {
       margin: theme.spacing(1, 0, 1),
-      backgroundColor:" #6b6961"
+      backgroundColor:" #6b6961",
+      borderRadius:"10px",
     },
     text__area: {
-        // marginRight: "10%",
-        // marginLeft: "10%",
         marginTop: theme.spacing(2),
         width: "20rem",
     },  
+    contact__title: {
+      display: "block",
+      fontSize: "calc(1.4rem + 1.2vw)",
+      fontFamily: "Vidaloka",
+      color: "var(--text-color-1)",
+      opacity: 0.8,
+      letterSpacing: "2px"
+    },
+    error_message: {
+      fontSize: 14,
+      color: "rgb(110, 7, 7)",
+      fontWeigth: "bold"
+  },
   }));
 
-  const initialValues = {
-    firstName:'',
-    lastName:'',
-    email:'',
-    message:'',
-    sent: false,
-  }
-
+  // Validation
+  const validate = (firstName, lastName, email, message) => {
+    const errors = {};
+    if (!firstName) {
+      errors.firstName = "First name can't be empty";
+    }
+    if (!lastName) {
+      errors.lastName = "Last name can't be empty.";
+    }
+  
+    if (typeof email !== "undefined") {
+      var pattern = new RegExp(
+        /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
+      );
+      if (!pattern.test(email)) {
+        errors.email = "Please enter a valid email address.";
+      }
+    }
+      return errors;
+  };
 
 function Contact() {
     const classes = useStyles();
-    const [values, setValues] = useState(initialValues);
+    const [values, setValues] = useState({firstName:'',
+    lastName:'',
+    email:'',
+    message:''
+  });
+    const[sent, setSent] = useState(false);
+    const[loading, setLoading] = useState(false);
+    const[errors, setErrors] = useState({});
 
     const handleChange = (e) => {
       const { name, value } = e.target;
-      // this.setState({ [name]: value }, () => console.log(this.state));
       setValues({
         ...values,
         [name]:value
       })
       console.log(values);
     };
-    // const resetForm = (e) =>{
-    //   const { name} = e.target
-    //   setValues({ ...values, [name]: '' });
-    // }
 
     const handleSubmit = (e) =>{
       e.preventDefault();
+      setSent(false);
+      setLoading(true);
       const { firstName, lastName, email,message } = values;
       let data = {
         firstName,
@@ -89,17 +114,24 @@ function Contact() {
         email,
         message
       };
+      const errors = validate(firstName, lastName, email);
+        
+      if (Object.values(errors).length > 0) {
+          setErrors({ ...errors,errors: errors });
+          setLoading(false);
+          return;
+        }
+
       console.log(data);
       axios
           .post("https://miro-profile.herokuapp.com/api/form", data)
           .then((res) => {
-            setValues({
-              ...values,
-              sent: true,
-            });
+            setSent(true);
+            setLoading(false);
             console.log("Data sent");
           })
           .catch(() => {
+            setSent(false);
             console.log("Data not sent");
           });
     }
@@ -111,17 +143,18 @@ function Contact() {
     <Container component="main" maxWidth="xs" className={classes.root}>
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar} sizes="medium">
+        <Avatar className={classes.avatar}>
           <EmailOutlinedIcon/>
         </Avatar>
-        {/* <Typography component="h1" variant="h5">
+        <Typography className={classes.contact__title}>
           Send email
-        </Typography> */}
-        <form className={classes.form} onSubmit={handleSubmit} noValidate>
+        </Typography>
+        {sent ? (<h1>Your message has been successfully sent!</h1>) : (
+          <form className={classes.form} onSubmit={handleSubmit} noValidate>
           <TextField
             className={classes.input__block}
             variant="filled"
-            margin="normal"
+            // margin="normal"
             required
             fullWidth
             id="firstName"
@@ -131,7 +164,10 @@ function Contact() {
             autoFocus
             value={values.firstName}
             onChange={handleChange}
-          />    
+          />   
+           {"firstName" in errors && (
+              <span className={classes.error_message}>{errors.firstName}</span>
+            )} 
           <TextField
             className={classes.input__block}
             variant="filled"
@@ -146,6 +182,9 @@ function Contact() {
             value={values.lastName}
             onChange={handleChange}
           />  
+          {"lastName" in errors && (
+              <span className={classes.error_message}>{errors.lastName}</span>
+            )} 
           <TextField
             className={classes.input__block}
             variant="filled"
@@ -160,6 +199,9 @@ function Contact() {
             value={values.email}
             onChange={handleChange}
           />
+            {"email" in errors && (
+                <span className={classes.error_message}>{errors.email}</span>
+              )} 
           <TextField
             className={classes.input__block}
             variant="filled"
@@ -168,7 +210,7 @@ function Contact() {
             id="filled-textarea"
             label="Your message..."
             multiline
-            rows={2}
+            rows={1}
             name="message"
             value={values.message}
             onChange={handleChange}
@@ -178,10 +220,17 @@ function Contact() {
             fullWidth
             variant="contained"
             className={classes.submit}
+            disabled={loading || errors.length>=0}
           >
-            Submit
+             {loading ? (
+                "Submiting..."
+              ) : (
+                "Submit"
+              )}
           </Button>
         </form>
+        )}
+        
       </div>
     </Container>
     )
