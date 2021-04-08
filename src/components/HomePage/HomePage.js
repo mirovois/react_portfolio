@@ -19,7 +19,7 @@ export default function HomePage() {
           {/* <div className="home__info"> */}
             <h1>Myroslav Voysovych</h1>
             <br />
-            <p>Free-lance front-end developer</p>
+            <p>Free-lance web developer</p>
           {/* </div> */}
           <div className="home__icons">
           <IconButton 
