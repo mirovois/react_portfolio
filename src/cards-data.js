@@ -6,28 +6,30 @@ import item5 from "./images/portfolio_React.jpg";
 import item6 from "./images/amazon_React.jpg";
 import item7 from './images/movie_React.jpg';
 import item8 from './images/weather_JS.jpg'
+import item9 from './images/ebakery.jpg'
+import item10 from './images/auth.jpg'
 import iconJS from "./images/iconJS.svg";
 import iconReact from "./images/iconReact.svg";
 
 const cardsInfo = [
   {
-    id: 1,
-    name: "Amazon Clone",
-    image: item6,
+    id: 9,
+    name: "E-commerce Bakery",
+    image: item9,
     desc:
-      "A scalable full stack E-commerce website built using ReactJS with backened aimed to process payments using Stripe API. Data is stored and processed in cloud database supported by Firebase.",
-    source: "https://github.com/mirovois/amazon-clone",
-    link: "https://clone-3bf30.web.app/",
+      "MERN full stack online bakery using Redux library as a tool for state management. ",
+    source: "https://github.com/mirovois/React-Redux-estore/tree/master",
+    link: "https://estore-app-miro.herokuapp.com/",
     icon: iconReact,
   },
   {
-    id: 2,
-    name: "Portfolio Website",
-    image: item5,
+    id: 10,
+    name: "Login and Signup",
+    image: item10,
     desc:
-      "A single page responsive portfolio website. Custom styles and Material UI library are used. The backend is represented by Express.js and Nodemailer.",
-    source: "https://github.com/mirovois/react_portfolio",
-    link: "https://miro-portfolio.netlify.app/",
+      "Developed functionality for login and signup with with validation , error handling. Used MongoDB and Nodejs for manipulating and storing users' credentials ",
+    source: "https://github.com/mirovois/authentification-authorization-NodejsMongoReact",
+    link: "https://auth-app-miro.herokuapp.com/",
     icon: iconReact,
   },
   {
@@ -38,6 +40,26 @@ const cardsInfo = [
       "An application for searching movies and related information using powerful TMDb API. The state is managed with Context API. By using special NPM packages we can fetch youtube trailers for any movie. ",
     source: "https://github.com/mirovois/movie-finder-React",
     link: "https://movie-app-miro.netlify.app/",
+    icon: iconReact,
+  },
+  {
+    id: 2,
+    name: "Portfolio Website",
+    image: item5,
+    desc:
+    "A single page responsive portfolio website. Custom styles and Material UI library are used. The backend is represented by Express.js and Nodemailer.",
+    source: "https://github.com/mirovois/react_portfolio",
+    link: "https://miro-portfolio.netlify.app/",
+    icon: iconReact,
+  },
+  {
+    id: 1,
+    name: "Amazon Clone",
+    image: item6,
+    desc:
+      "A scalable full stack E-commerce website built using ReactJS with backened aimed to process payments using Stripe API. Data is stored and processed in cloud database supported by Firebase.",
+    source: "https://github.com/mirovois/amazon-clone",
+    link: "https://clone-3bf30.web.app/",
     icon: iconReact,
   },
   {
