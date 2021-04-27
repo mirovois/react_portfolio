@@ -17,7 +17,7 @@ const cardsInfo = [
     name: "E-commerce Bakery",
     image: item9,
     desc:
-      "MERN full stack online bakery using Redux library as a tool for state management. ",
+      "React e-commerce scalable app with express framework serving as a backend. MongoDB is used as database. Redux library as a  tool for state management.",
     source: "https://github.com/mirovois/React-Redux-estore/tree/master",
     link: "https://estore-app-miro.herokuapp.com/",
     icon: iconReact,
