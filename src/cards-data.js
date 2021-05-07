@@ -5,13 +5,24 @@ import item4 from "./images/pdj_React.jpg";
 import item5 from "./images/portfolio_React.jpg";
 import item6 from "./images/amazon_React.jpg";
 import item7 from './images/movie_React.jpg';
-import item8 from './images/weather_JS.jpg'
-import item9 from './images/ebakery.jpg'
-import item10 from './images/auth.jpg'
+import item8 from './images/weather_JS.jpg';
+import item9 from './images/ebakery.jpg';
+import item10 from './images/auth.jpg';
+import item11 from './images/quiz.jpg';
 import iconJS from "./images/iconJS.svg";
 import iconReact from "./images/iconReact.svg";
 
 const cardsInfo = [
+  {
+    id: 11,
+    name: "Quiz App",
+    image: item11,
+    desc:
+      "Simple quiz app built with React using TypeScript. Styled components were used for styling purposes ",
+    source: "https://github.com/mirovois/quiz-app_React-TypeScript",
+    link: "https://quiz-miro-app.netlify.app/",
+    icon: iconReact,
+  },
   {
     id: 9,
     name: "E-commerce Bakery",
